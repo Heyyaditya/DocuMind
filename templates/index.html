@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DocuMind | Chat with Documents</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <h2>📄 DocuMind</h2>
+            <p>Your documents. One intelligent conversation.</p>
+        </header>
+
+
+        <!-- UPLOAD SECTION -->
+        <main id="uploadSection">
+
+            <h1>Chat with your documents</h1>
+
+            <p class="subtitle">
+                Upload your files and get answers directly from their content.
+            </p>
+
+            <!-- DRAG AND DROP -->
+            <div class="upload-box" id="dropArea">
+
+                <div class="upload-icon">☁️</div>
+
+                <h3>Drag & Drop your files here</h3>
+
+                <p>or</p>
+
+                <label for="fileInput" class="browse-btn">
+                    Browse Files
+                </label>
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    accept=".pdf,.docx,.txt"
+                    multiple
+                    hidden
+                >
+
+                <p class="file-info">
+                    Supported formats: PDF, DOCX, TXT
+                </p>
+
+            </div>
+
+
+            <!-- SELECTED FILES -->
+            <div class="selected-files">
+
+                <h3>Selected Documents</h3>
+
+                <ul id="fileList">
+                    <li class="empty-message">
+                        No files selected yet
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <!-- UPLOAD BUTTON -->
+            <button id="uploadBtn" disabled>
+                Upload & Start Chatting →
+            </button>
+
+
+            <p class="privacy-note">
+                🔒 Your answers will be based only on your uploaded documents.
+            </p>
+
+        </main>
+
+
+        <!-- CHATBOT SECTION -->
+        <main id="chatSection" style="display: none;">
+
+            <div class="chat-header">
+
+                <h1>DocuMind Chat 💬</h1>
+
+                <p class="subtitle">
+                    Ask questions about your uploaded documents.
+                </p>
+
+                <p id="chatStatus" class="chat-status">
+                    Documents are ready!
+                </p>
+
+            </div>
+
+
+            <!-- CHAT MESSAGES -->
+            <div id="chatMessages">
+
+                <div class="bot-message">
+                    <strong>DocuMind</strong>
+
+                    <p>
+                        Hello! Your documents have been successfully processed.
+                        What would you like to know?
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- CHAT INPUT -->
+            <div class="chat-input">
+
+                <input
+                    type="text"
+                    id="questionInput"
+                    placeholder="Ask something about your documents..."
+                    autocomplete="off"
+                >
+
+                <button id="sendBtn">
+                    Send ➤
+                </button>
+
+            </div>
+
+
+            <p class="privacy-note">
+                🔒 Responses are retrieved from your uploaded documents.
+            </p>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
